@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class BingTest {
+public class BingTestWithAjax {
 
 	WebDriver driver = null;
 
@@ -26,7 +26,7 @@ public class BingTest {
 	public void testBingSearch() {
 		driver.get("http://www.bing.com/");
 
-		BingLandingPage page = PageFactory.initElements(driver, BingLandingPage.class);
+		BingLandingPageWithAjax page = PageFactory.initElements(driver, BingLandingPageWithAjax.class);
 		page.searchFor("Selenium");
 
 		WebElement checkElement = driver.findElement(By.xpath("//*[@id=\"b_context\"]/li[1]/div/div[1]/h2"));
