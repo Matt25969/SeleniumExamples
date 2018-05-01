@@ -27,6 +27,9 @@ public class reportTest {
 		driver.get("https://www.qa.com/");
 		String title = driver.getTitle();
 		System.out.println(title);
+
+		HelperMethods.screenshot(driver);
+
 		if (title.equals("IT Training | Project Management Training | Business Skills Training | QA")) {
 			// report the test as a pass
 			test.log(LogStatus.PASS, "verify Title of the page");
