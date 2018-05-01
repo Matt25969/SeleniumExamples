@@ -26,7 +26,7 @@ public class BingTest {
 	public void testBingSearch() {
 		driver.get("http://www.bing.com/");
 		BingLandingPage page = PageFactory.initElements(driver, BingLandingPage.class);
-		page.searchFor(driver, "Selenium");
+		page.searchFor("Selenium");
 
 		WebElement checkElement = driver.findElement(By.xpath("//*[@id=\"b_context\"]/li[1]/div/div[1]/h2"));
 
