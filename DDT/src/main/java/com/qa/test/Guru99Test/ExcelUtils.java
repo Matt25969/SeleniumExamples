@@ -11,7 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtils {
 
-	public static XSSFSheet ExcelWSheet;
+	private static XSSFSheet ExcelWSheet;
 
 	private static XSSFWorkbook ExcelWBook;
 
@@ -46,6 +46,10 @@ public class ExcelUtils {
 
 	// This method is to read the test data from the Excel cell, in this we
 	// are passing parameters as Row num and Col num
+
+	public static XSSFSheet getExcelWSheet() {
+		return ExcelWSheet;
+	}
 
 	public static String getCellData(int RowNum, int ColNum) {
 

@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -39,7 +40,7 @@ public class DDTReadAndWrite {
 		ExtentReports report = new ExtentReports(
 				"C:\\Users\\Admin\\Desktop\\SeleniumExamples\\ExcelUtilsDemoTestReport.html", true);
 
-		for (int i = 1; i < ExcelUtils.ExcelWSheet.getPhysicalNumberOfRows(); i++) {
+		for (int i = 1; i < ExcelUtils.getExcelWSheet().getPhysicalNumberOfRows(); i++) {
 
 			testReport = report.startTest("Excel Data Test: " + i);
 
@@ -86,6 +87,10 @@ public class DDTReadAndWrite {
 					"/html/body/table/tbody/tr/td[1]/form/div/center/table/tbody/tr/td[1]/table/tbody/tr[3]/td[2]/p/input"));
 			loginButton.click();
 			testReport.log(LogStatus.INFO, "Logged In");
+
+			Actions action = new Actions(driver);
+
+			action.moveByOffset(10, 10).perform();
 
 			Thread.sleep(1000);
 
