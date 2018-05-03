@@ -1,18 +1,13 @@
 package com.qa.test.Guru99Test;
 
-import static org.junit.Assert.*;
-
-import java.util.concurrent.TimeUnit;
+import static org.junit.Assert.assertNull;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ProperJUnitUsage {
 
@@ -33,6 +28,8 @@ public class ProperJUnitUsage {
 		}.getClass().getEnclosingMethod().getName());
 
 		// Selenium Test
+
+		driver.get("http://google.com");
 
 		assertNull(element);
 
