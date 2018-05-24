@@ -2,6 +2,7 @@ package com.qa.test.Guru99Test;
 
 import static junit.framework.Assert.assertEquals;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -15,6 +16,12 @@ public class StackSteps {
 	@Given("^an empty stack$")
 	public void an_empty_stack() {
 		myStack = new StackExample();
+	}
+
+	@Given("^a full stack$")
+	public void a_full_stack() throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		throw new PendingException();
 	}
 
 	@When("^I pop from the stack$")

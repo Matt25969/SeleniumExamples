@@ -19,14 +19,16 @@ public class reportTest {
 		report = new ExtentReports("C:\\Users\\Admin\\Desktop\\AutomationReports\\BasicReport.html", true);
 
 		test = report.startTest("Verify application Title");
+
 		System.setProperty("webdriver.chrome.driver", "C:/Development/web_driver/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
+
 		// add a note to the test
 		test.log(LogStatus.INFO, "Browser started");
+
 		driver.get("https://www.qa.com/");
 		String title = driver.getTitle();
-		System.out.println(title);
 
 		HelperMethods.screenshot(driver);
 
@@ -36,6 +38,7 @@ public class reportTest {
 		} else {
 			test.log(LogStatus.FAIL, "verify Title of the page");
 		}
+
 		report.endTest(test);
 		report.flush();
 

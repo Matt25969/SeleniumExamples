@@ -1,7 +1,5 @@
 package com.qa.test.Guru99Test;
 
-import static org.junit.Assert.assertNull;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,20 +19,22 @@ public class ProperJUnitUsage {
 		driver = new ChromeDriver();
 	}
 
+	// *[@id="tsf"]/div[2]/div[3]/center/input[1]
+
 	@Test
 	public void layoutTest() {
-
-		System.out.println("Starting test " + new Object() {
-		}.getClass().getEnclosingMethod().getName());
+		//
+		// System.out.println("Starting test " + new Object() {
+		// }.getClass().getEnclosingMethod().getName());
 
 		// Selenium Test
 
-		driver.get("http://google.com");
+		driver.get("https://www.google.com/");
 
-		assertNull(element);
-
-		System.out.println("Ending test " + new Object() {
-		}.getClass().getEnclosingMethod().getName());
+		// assertNull(element);
+		//
+		// System.out.println("Ending test " + new Object() {
+		// }.getClass().getEnclosingMethod().getName());
 	}
 
 	@After

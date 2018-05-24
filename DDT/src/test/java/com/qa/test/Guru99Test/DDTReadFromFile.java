@@ -35,12 +35,10 @@ public class DDTReadFromFile {
 	}
 
 	@Test
-	public void excelTest() throws InterruptedException, IOException {
+	public void excelTest() throws IOException, InterruptedException {
 
-		FileInputStream file = null;
-		file = new FileInputStream(LoginData);
-		XSSFWorkbook workbook = null;
-		workbook = new XSSFWorkbook(file);
+		FileInputStream file = new FileInputStream(LoginData);
+		XSSFWorkbook workbook = new XSSFWorkbook(file);
 		XSSFSheet sheet = workbook.getSheetAt(0);
 
 		for (int i = 1; i < sheet.getPhysicalNumberOfRows(); i++) {

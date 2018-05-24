@@ -29,4 +29,12 @@ public class BlackJackTest {
 
 	}
 
+	@Test
+	public void isThisATest() {
+		BlackJack blackjack = new BlackJack();
+
+		blackjack.play(10, 21);
+
+	}
+
 }

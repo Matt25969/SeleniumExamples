@@ -16,15 +16,15 @@ public class ParametisedBlackJackTest {
 
 	@Parameters
 	public static List<Integer[]> data() {
-		return Arrays.asList(new Integer[][] { { 0, 22, 0 }, { 22, 22, 0 }, { 12, 15, 15 }, { 21, 20, 21 },
-				{ 14, 13, 14 }, { 25, 5, 5 }, { 20, 21, 21 }, { 22, 10, 10 } });
+		return Arrays.asList(new Integer[][] { { 0, 22, 0 }, { 0, 22, 22 }, { 15, 15, 12 }, { 21, 20, 21 },
+				{ 14, 13, 14 }, { 6, 6, 25 }, { 21, 21, 20 }, { 10, 10, 22 } });
 	}
 
 	private int Input1;
 	private int Input2;
 	private int Expected;
 
-	public ParametisedBlackJackTest(int input1, int input2, int expected) {
+	public ParametisedBlackJackTest(int expected, int input2, int input1) {
 		Input1 = input1;
 		Input2 = input2;
 		Expected = expected;

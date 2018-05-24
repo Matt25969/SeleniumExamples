@@ -47,7 +47,8 @@ public class ExamplesClass {
 	}
 
 	@After
-	public void tearDown() {
+	public void tearDown() throws InterruptedException {
+		Thread.sleep(2000);
 		driver.close();
 		driver.quit();
 	}
