@@ -24,7 +24,7 @@ public class DDTReadFromFile {
 	WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
-	String LoginData = "C:\\Users\\Admin\\Desktop\\SeleniumExamples\\LoginData.xlsx";
+	String LoginData = "";
 
 	@Before
 	public void setUp() {
@@ -37,7 +37,7 @@ public class DDTReadFromFile {
 	@Test
 	public void excelTest() throws IOException, InterruptedException {
 
-		FileInputStream file = new FileInputStream(LoginData);
+		FileInputStream file = new FileInputStream("C:\\Users\\Admin\\Desktop\\SeleniumExamples\\LoginData.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(file);
 		XSSFSheet sheet = workbook.getSheetAt(0);
 

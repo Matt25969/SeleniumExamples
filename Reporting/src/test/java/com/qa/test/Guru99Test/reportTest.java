@@ -27,7 +27,7 @@ public class reportTest {
 		// add a note to the test
 		test.log(LogStatus.INFO, "Browser started");
 
-		driver.get("https://www.qa.com/");
+		driver.get("https://www.google.com/");
 		String title = driver.getTitle();
 
 		HelperMethods.screenshot(driver);
@@ -43,6 +43,7 @@ public class reportTest {
 		report.flush();
 
 		driver.quit();
+
 	}
 
 }

@@ -44,12 +44,12 @@ public class ExcelUtils {
 
 	}
 
-	// This method is to read the test data from the Excel cell, in this we
-	// are passing parameters as Row num and Col num
-
 	public static XSSFSheet getExcelWSheet() {
 		return ExcelWSheet;
 	}
+
+	// This method is to read the test data from the Excel cell, in this we
+	// are passing parameters as Row num and Col num
 
 	public static String getCellData(int RowNum, int ColNum) {
 

@@ -19,7 +19,8 @@ public class SimpleActions {
 
 	public void setUp() throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver", "C:/Development/web_driver/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\Admin\\Desktop\\Course Examples Master\\Automated Testing Workspace\\WebDrivers\\chromedriver.exe");
 
 		driver = new ChromeDriver();
 
@@ -42,6 +43,14 @@ public class SimpleActions {
 		Thread.sleep(1500);
 
 		action.dragAndDropBy(dragMeAround, 100, 100).perform();
+
+		action.moveToElement(dragMeAround).perform();
+
+		driver.get("http://demoqa.com/tooltip/");
+
+		WebElement hover = driver.findElement(By.xpath("//*[@id=\"age\"]"));
+
+		action.moveToElement(hover).perform();
 
 		Thread.sleep(1500);
 	}

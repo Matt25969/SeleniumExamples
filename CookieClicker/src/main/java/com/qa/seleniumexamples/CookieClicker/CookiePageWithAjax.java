@@ -1,10 +1,15 @@
 package com.qa.seleniumexamples.CookieClicker;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CookiePageWithAjax {
 	public CookiePageWithAjax(WebDriver driver) {
@@ -20,108 +25,46 @@ public class CookiePageWithAjax {
 	@FindBy(xpath = "//*[@id=\"upgrade0\"]")
 	private WebElement firstUpgradeButton;
 
-	@FindBy(xpath = "//*[@id=\"product0\"]")
-	private WebElement firstButton;
-
-	@FindBy(xpath = "//*[@id=\"product1\"]")
-	private WebElement secondButton;
-
-	@FindBy(xpath = "//*[@id=\"product2\"]")
-	private WebElement thirdButton;
-
-	@FindBy(xpath = "//*[@id=\"product3\"]")
-	private WebElement fourthButton;
-
-	@FindBy(xpath = "//*[@id=\"product4\"]")
-	private WebElement fifthButton;
-
-	@FindBy(xpath = "//*[@id=\"product5\"]")
-	private WebElement sixthButton;
-
-	@FindBy(xpath = "//*[@id=\"prefsButton\"]")
-	private WebElement options;
-
-	@FindBy(xpath = "//*[@id=\"formatButton\"]")
-	private WebElement numberOptions;
-
 	@FindBy(xpath = "//*[@id=\"shimmers\"]")
 	private WebElement shimmer;
 
-	public void method() throws InterruptedException {
+	public void method(WebDriver driver) throws InterruptedException {
 
-		int check = 0;
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 
-		int cheapest = 0;
+		List<WebElement> productsList = driver.findElements(By.cssSelector(".product"));
+
+		Actions action = new Actions(driver);
+
+		for (int i = 0; i < 20; i++) {
+
+			cookie.click();
+
+		}
+
+		driver.findElement(By.xpath("//*[@id=\"product0\"]")).click();
 
 		while (true) {
 
 			if (shimmer.isDisplayed() == true) {
 
-				shimmer.click();
+				action.moveToElement(shimmer).click().perform();
+
 			}
 
 			cookie.click();
 
-			String s1 = numberOfCookies.getText();
+			for (WebElement product : productsList) {
 
-			if (s1.lastIndexOf("cookies") >= 3) {
+				if (product.getAttribute("class").equals("product unlocked enabled")) {
 
-				String[] stringArray = s1.substring(0, s1.lastIndexOf("cookies") - 1).split(",");
+					if (firstUpgradeButton.isDisplayed()
+							&& firstUpgradeButton.getAttribute("class").equals("crate upgrade enabled")) {
+						firstUpgradeButton.click();
 
-				String sTest = "";
+					}
 
-				for (String s : stringArray) {
-
-					sTest = sTest + s;
-
-				}
-
-				check = Integer.parseInt(sTest);
-
-			}
-
-			if (check >= cheapest) {
-
-				if (firstButton.isDisplayed() && firstButton.getAttribute("class").equals("product unlocked enabled")) {
-					firstButton.click();
-					cheapest = check;
-					continue;
-				}
-				if (secondButton.isDisplayed()
-						&& secondButton.getAttribute("class").equals("product unlocked enabled")) {
-					secondButton.click();
-					cheapest = check;
-					continue;
-				}
-				if (thirdButton.isDisplayed() && thirdButton.getAttribute("class").equals("product unlocked enabled")) {
-					thirdButton.click();
-					cheapest = check;
-					continue;
-				}
-				if (fourthButton.isDisplayed()
-						&& fourthButton.getAttribute("class").equals("product unlocked enabled")) {
-					fourthButton.click();
-					cheapest = check;
-					continue;
-				}
-				if (fifthButton.isDisplayed() && fifthButton.getAttribute("class").equals("product unlocked enabled")) {
-					fifthButton.click();
-					cheapest = check;
-					continue;
-				}
-				if (sixthButton.isDisplayed() && sixthButton.getAttribute("class").equals("product unlocked enabled")) {
-					sixthButton.click();
-					cheapest = check;
-					continue;
-				}
-
-				if (check >= 18 && firstUpgradeButton.isDisplayed()
-						&& firstUpgradeButton.getAttribute("class").equals("crate upgrade enabled")) {
-					firstUpgradeButton.click();
-
-					cheapest = check;
-					continue;
-
+					product.click();
 				}
 
 			}

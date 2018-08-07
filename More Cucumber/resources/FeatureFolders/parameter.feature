@@ -4,8 +4,6 @@ As a User
 I want to search for a particular term
 So that I can see information about it
 
-
-
    Scenario Outline: Search bing for google
    Given I go to "<website>" website
    When I search for "<searchTerm>"

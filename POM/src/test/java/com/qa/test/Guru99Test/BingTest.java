@@ -16,7 +16,7 @@ public class BingTest {
 	WebDriver driver = null;
 
 	@Before
-	public void method() {
+	public void setup() {
 		System.setProperty("webdriver.chrome.driver", "C:/Development/web_driver/chromedriver.exe");
 		driver = new ChromeDriver();
 
@@ -27,6 +27,7 @@ public class BingTest {
 		driver.get("http://www.bing.com/");
 
 		BingLandingPage page = PageFactory.initElements(driver, BingLandingPage.class);
+
 		page.searchFor("Selenium");
 
 		WebElement checkElement = driver.findElement(By.xpath("//*[@id=\"b_context\"]/li[1]/div/div[1]/h2"));

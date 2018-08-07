@@ -64,6 +64,7 @@ public class DDTReadAndWrite {
 			WebElement addPass = driver.findElement(By.xpath(
 					"/html/body/table/tbody/tr/td[1]/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[2]/td[2]/p/input"));
 			addPass.click();
+
 			addPass.sendKeys(ExcelUtils.getCellData(i, 1));
 			testReport.log(LogStatus.INFO, "Input password");
 			WebElement save = driver.findElement(By.xpath(
@@ -110,9 +111,9 @@ public class DDTReadAndWrite {
 
 			ExcelUtils.setCellData("Pass", i, 2);
 			testReport.log(LogStatus.PASS, "Demo Site Login Test");
-
+			report.endTest(testReport);
 		}
-		report.endTest(testReport);
+
 		report.flush();
 	}
 

@@ -11,7 +11,7 @@ public class BlackJackTest {
 
 		BlackJack blackjack = new BlackJack();
 
-		assertEquals(11, blackjack.play(11, 22));
+		assertEquals(20, blackjack.play(16, 20));
 
 	}
 
@@ -25,7 +25,7 @@ public class BlackJackTest {
 		assertEquals(11, blackjack.play(11, 22));
 		assertEquals(12, blackjack.play(12, 22));
 		assertEquals(13, blackjack.play(13, 22));
-		assertEquals(14, blackjack.play(14, 22));
+		assertEquals(18, blackjack.play(14, 18));
 
 	}
 
