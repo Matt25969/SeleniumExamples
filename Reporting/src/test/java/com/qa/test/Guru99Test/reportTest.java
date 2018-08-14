@@ -1,5 +1,8 @@
 package com.qa.test.Guru99Test;
 
+import static org.junit.Assert.*;
+
+import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,6 +15,15 @@ public class reportTest {
 
 	public ExtentReports report;
 	public ExtentTest test;
+	
+	public WebDriver driver;
+	
+	@After
+	public void tearDown() {
+		
+		driver.quit();
+		
+	}
 
 	@Test
 	public void verifyHomePageTitle() {
@@ -21,7 +33,7 @@ public class reportTest {
 		test = report.startTest("Verify application Title");
 
 		System.setProperty("webdriver.chrome.driver", "C:/Development/web_driver/chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 
 		// add a note to the test
@@ -30,7 +42,6 @@ public class reportTest {
 		driver.get("https://www.google.com/");
 		String title = driver.getTitle();
 
-		HelperMethods.screenshot(driver);
 
 		if (title.equals("IT Training | Project Management Training | Business Skills Training | QA")) {
 			// report the test as a pass
@@ -41,8 +52,8 @@ public class reportTest {
 
 		report.endTest(test);
 		report.flush();
-
-		driver.quit();
+		
+		assertEquals("IT Training | Project Management Training | Business Skills Training | QA",title);
 
 	}
 
