@@ -16,7 +16,7 @@ public class ExamplesClass {
 
 	WebDriver driver;
 
-	String url;
+	String url = "";
 
 	@Before
 	public void setup() {
@@ -36,6 +36,11 @@ public class ExamplesClass {
 	@Then("^I am taken to a list of data for that search$")
 	public void i_am_taken_to_a_list_of_data_for_that_search() {
 		// Write code here that turns the phrase above into concrete actions
+		
+		System.out.println(url);
+		
+		System.out.println(driver.getCurrentUrl());
+		
 		assertTrue(!url.equals(driver.getCurrentUrl()));
 	}
 
@@ -43,7 +48,7 @@ public class ExamplesClass {
 	public void i_go_to_website(String arg1) {
 		// Write code here that turns the phrase above into concrete actions
 		driver.get(arg1);
-		url = driver.getCurrentUrl();
+//		url = driver.getCurrentUrl();
 	}
 
 	@After

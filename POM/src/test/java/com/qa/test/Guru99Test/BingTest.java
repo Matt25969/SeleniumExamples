@@ -13,12 +13,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BingTest {
 
-	WebDriver driver = null;
+	WebDriver driver;
 
 	@Before
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", "C:/Development/web_driver/chromedriver.exe");
 		driver = new ChromeDriver();
+		
 
 	}
 
@@ -28,7 +29,7 @@ public class BingTest {
 
 		BingLandingPage page = PageFactory.initElements(driver, BingLandingPage.class);
 
-		page.searchFor("Selenium");
+		page.searchFor("Dave");
 
 		WebElement checkElement = driver.findElement(By.xpath("//*[@id=\"b_context\"]/li[1]/div/div[1]/h2"));
 

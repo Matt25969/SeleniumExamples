@@ -2,14 +2,19 @@ package com.qa.seleniumexamples.BlackJack;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class BlackJackTest {
+	BlackJack blackjack;
+
+	@Before
+	public void setup() {
+		blackjack = new BlackJack();
+	}
 
 	@Test
 	public void playTest() {
-
-		BlackJack blackjack = new BlackJack();
 
 		assertEquals(20, blackjack.play(16, 20));
 
@@ -17,8 +22,6 @@ public class BlackJackTest {
 
 	@Test
 	public void playTest1() {
-
-		BlackJack blackjack = new BlackJack();
 
 		assertEquals(10, blackjack.play(10, 22));
 		assertEquals(18, blackjack.play(18, 22));
@@ -31,7 +34,6 @@ public class BlackJackTest {
 
 	@Test
 	public void isThisATest() {
-		BlackJack blackjack = new BlackJack();
 
 		blackjack.play(10, 21);
 

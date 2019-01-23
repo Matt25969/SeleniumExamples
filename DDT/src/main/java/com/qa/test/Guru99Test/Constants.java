@@ -8,7 +8,7 @@ public class Constants {
 
 	public static final String loginURL = "http://thedemosite.co.uk/login.php";
 
-	public static final String pathTestData = "C:\\Users\\Admin\\Desktop\\SeleniumExamples\\";
+	public static final String pathTestData = "C:\\Users\\Admin\\Desktop\\Course Examples Master\\Automated Testing Repo\\SeleniumExamples\\";
 
 	public static final String fileTestData = "testData.xlsx";
 

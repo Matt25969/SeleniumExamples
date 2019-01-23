@@ -39,17 +39,17 @@ public class reportTest {
 		// add a note to the test
 		test.log(LogStatus.INFO, "Browser started");
 
-		driver.get("https://www.google.com/");
+		driver.get("https://www.qa.com/");
 		String title = driver.getTitle();
 
 
-		if (title.equals("IT Training | Project Management Training | Business Skills Training | QA")) {
+		if (title.equals(" Training | Project Management Training | Business Skills Training | QA")) {
 			// report the test as a pass
 			test.log(LogStatus.PASS, "verify Title of the page");
 		} else {
 			test.log(LogStatus.FAIL, "verify Title of the page");
 		}
-
+		
 		report.endTest(test);
 		report.flush();
 		

@@ -30,14 +30,15 @@ public class DDTReadFromFile {
 	public void setUp() {
 		System.setProperty("webdriver.chrome.driver", "C:/Development/web_driver/chromedriver.exe");
 		driver = new ChromeDriver();
-		report = new ExtentReports("C:\\Users\\Admin\\Desktop\\SeleniumExamples\\DDT.html");
+		report = new ExtentReports("C:\\Users\\Admin\\Desktop\\Course Examples Master\\Automated Testing Repo\\SeleniumExamples"
+				+ "\\DDT.html");
 		test = report.startTest("StartingTest");
 	}
 
 	@Test
 	public void excelTest() throws IOException, InterruptedException {
 
-		FileInputStream file = new FileInputStream("C:\\Users\\Admin\\Desktop\\SeleniumExamples\\LoginData.xlsx");
+		FileInputStream file = new FileInputStream("C:\\Users\\Admin\\Desktop\\Course Examples Master\\Automated Testing Repo\\SeleniumExamples\\LoginData.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(file);
 		XSSFSheet sheet = workbook.getSheetAt(0);
 

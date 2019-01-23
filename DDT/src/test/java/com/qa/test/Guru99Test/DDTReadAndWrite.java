@@ -38,7 +38,7 @@ public class DDTReadAndWrite {
 	public void test() throws InterruptedException {
 
 		ExtentReports report = new ExtentReports(
-				"C:\\Users\\Admin\\Desktop\\SeleniumExamples\\ExcelUtilsDemoTestReport.html", true);
+				"C:\\Users\\Admin\\Desktop\\Course Examples Master\\Automated Testing Repo\\SeleniumExamples\\ExcelUtilsDemoTestReport.html", true);
 
 		for (int i = 1; i < ExcelUtils.getExcelWSheet().getPhysicalNumberOfRows(); i++) {
 
