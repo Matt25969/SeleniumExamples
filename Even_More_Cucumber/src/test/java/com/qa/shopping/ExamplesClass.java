@@ -1,10 +1,13 @@
-package com.qa.test.Guru99Test;
+package com.qa.shopping;
 
 import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -15,6 +18,8 @@ import cucumber.api.java.en.When;
 public class ExamplesClass {
 
 	WebDriver driver;
+	
+	ExtentTest test;
 
 	String url = "";
 
@@ -23,13 +28,14 @@ public class ExamplesClass {
 		System.setProperty("webdriver.chrome.driver", "C:/Development/web_driver/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-
+		test = TestRunner.report.startTest("New Test");
 	}
 
 	@When("^I search for \"([^\"]*)\"$")
 	public void i_search_for(String arg1) {
 		bingHomePage page = PageFactory.initElements(driver, bingHomePage.class);
 		page.sendKeysToSearch(arg1);
+		test.log(LogStatus.INFO, arg1 + " Test started");
 	}
 
 	@Then("^I am taken to a list of data for that search$")
@@ -39,6 +45,8 @@ public class ExamplesClass {
 		System.out.println(url);
 		
 		System.out.println(driver.getCurrentUrl());
+		
+		test.log(LogStatus.PASS, "Test passed");
 		
 		assertTrue(!url.equals(driver.getCurrentUrl()));
 	}
@@ -55,5 +63,7 @@ public class ExamplesClass {
 		Thread.sleep(2000);
 		driver.close();
 		driver.quit();
+		
+		
 	}
 }

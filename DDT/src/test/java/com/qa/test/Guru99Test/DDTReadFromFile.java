@@ -9,7 +9,9 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,23 +24,31 @@ import com.relevantcodes.extentreports.LogStatus;
 public class DDTReadFromFile {
 
 	WebDriver driver;
-	ExtentReports report;
-	ExtentTest test;
+	static ExtentReports report;
+	static ExtentTest test;
 	String LoginData = "";
+	
+	
+
+	@BeforeClass
+	public static void beforeClass() {
+		report = new ExtentReports(
+				"C:\\Users\\Admin\\Desktop\\Course Examples Master\\Automated Testing Repo\\SeleniumExamples"
+						+ "\\DDT.html");
+	}
 
 	@Before
 	public void setUp() {
 		System.setProperty("webdriver.chrome.driver", "C:/Development/web_driver/chromedriver.exe");
 		driver = new ChromeDriver();
-		report = new ExtentReports("C:\\Users\\Admin\\Desktop\\Course Examples Master\\Automated Testing Repo\\SeleniumExamples"
-				+ "\\DDT.html");
-		test = report.startTest("StartingTest");
+
 	}
 
 	@Test
 	public void excelTest() throws IOException, InterruptedException {
 
-		FileInputStream file = new FileInputStream("C:\\Users\\Admin\\Desktop\\Course Examples Master\\Automated Testing Repo\\SeleniumExamples\\LoginData.xlsx");
+		FileInputStream file = new FileInputStream(
+				"C:\\Users\\Admin\\Desktop\\Course Examples Master\\Automated Testing Repo\\SeleniumExamples\\LoginData.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(file);
 		XSSFSheet sheet = workbook.getSheetAt(0);
 
@@ -50,10 +60,12 @@ public class DDTReadFromFile {
 			String user = username.getStringCellValue();
 			String pass = password.getStringCellValue();
 
+			test = report.startTest("StartingTest, User:" + user );
+
 			driver.get("http://asp.thedemosite.co.uk/");
 			test.log(LogStatus.INFO, "navigate to demosite homepage");
 
-			test.log(LogStatus.INFO, "inputting new username");
+			test.log(LogStatus.INFO, "inputting new username: " + user);
 
 			driver.findElement(By.xpath(
 					"/html/body/div/center/table/tbody/tr[2]/td/div/center/table/tbody/tr/td[2]/small/strong/a[3]"))
@@ -66,7 +78,7 @@ public class DDTReadFromFile {
 					.xpath("/html/body/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[1]/td[2]/input"))
 					.sendKeys(user);
 
-			test.log(LogStatus.INFO, "inputting new password");
+			test.log(LogStatus.INFO, "inputting new password: " + pass);
 
 			driver.findElement(By
 					.xpath("/html/body/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[2]/td[2]/input"))
@@ -120,15 +132,21 @@ public class DDTReadFromFile {
 			test.log(LogStatus.PASS, "Successfully created a user and logged in with it");
 
 			Thread.sleep(1000);
+			report.endTest(test);
 
 		}
 	}
 
 	@After
 	public void tearDown() {
-		report.endTest(test);
-		report.flush();
+
 		driver.quit();
+
+	}
+
+	@AfterClass
+	public static void afterClass() {
+		report.flush();
 
 	}
 

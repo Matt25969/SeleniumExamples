@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>com.qa.example</groupId>
-	<artifactId>java-cucumber-example</artifactId>
-	<version>1.0-SNAPSHOT</version>
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.qa</groupId>
+  <artifactId>Even_More_Cucumber</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
 	<dependencies>
 		<dependency>
 			<groupId>info.cukes</groupId>
@@ -20,7 +17,6 @@
 			<version>1.2.4</version>
 			<scope>test</scope>
 		</dependency>
-		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -39,5 +35,6 @@
         </dependency>
 	</dependencies>
 
-
+  
+  
 </project>

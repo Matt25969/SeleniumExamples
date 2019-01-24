@@ -20,8 +20,8 @@ Feature: Working with a Stack
     And I pop from the stack
     Then I get the same item back
     
-      Scenario: Pop a given item from the stack
-    Given a full stack
+  Scenario: Pop a given item from the stack
+    Given a stack with 3 items
     When I push an item into the stack
     And I pop from the stack
     Then I get the same item back
